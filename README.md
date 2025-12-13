@@ -94,7 +94,6 @@ Campos:
 ### Passo a passo
 
 1️⃣ Clonar o repositório:
-```bash
 git clone https://github.com/SEU-USUARIO/controle-gastos.git
 
 2️⃣ Acessar o backend:
@@ -114,3 +113,28 @@ dotnet run
 
 6️⃣ Acessar o Swagger:
 http://localhost:5028/swagger
+
+## Testes Manuais via Swagger
+
+A API pode ser testada diretamente pelo Swagger, permitindo:
+
+Criar pessoas (menor e maior de idade)
+
+Criar categorias de despesa e receita
+
+Registrar transações respeitando as regras de negócio
+
+Consultar relatórios consolidados
+
+## Observações Importantes
+
+O banco SQLite é criado automaticamente ao rodar a aplicação
+
+Arquivos de banco (.db) não são versionados (configurados no .gitignore)
+
+O projeto segue separação de responsabilidades e padrões comuns em aplicações .NET
+
+✍️ Autor
+
+Desenvolvido por Samuel Henrique
+Projeto criado para fins de avaliação técnica.
