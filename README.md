@@ -181,7 +181,7 @@ http://localhost:5028/swagger
 
 ---
 
-### 🔹 Frontend
+###  Frontend
 
 1. Acesse a pasta do frontend:
 
