@@ -6,7 +6,7 @@ A aplicação é composta por um **backend em .NET (Web API)** e um **frontend e
 
 ---
 
-## 🧠 Objetivo do Sistema
+##  Objetivo do Sistema
 
 Permitir o cadastro e gerenciamento de:
 
@@ -21,7 +21,7 @@ Além disso, o sistema disponibiliza **relatórios consolidados**, permitindo vi
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+##  Tecnologias Utilizadas
 
 ### Backend
 
@@ -38,7 +38,7 @@ Além disso, o sistema disponibiliza **relatórios consolidados**, permitindo vi
 
 ---
 
-## 📂 Estrutura do Projeto
+##  Estrutura do Projeto
 
 ```
 controle-gastos/
@@ -64,9 +64,9 @@ controle-gastos/
 
 ---
 
-## 📌 Funcionalidades Implementadas
+##  Funcionalidades Implementadas
 
-### 👤 Cadastro de Pessoas
+###  Cadastro de Pessoas
 
 * Criação de pessoas
 * Listagem de pessoas
@@ -81,7 +81,7 @@ Campos:
 
 ---
 
-### 🗂️ Cadastro de Categorias
+###  Cadastro de Categorias
 
 * Criação de categorias
 * Listagem de categorias
@@ -97,7 +97,7 @@ Campos:
 
 ---
 
-### 💰 Cadastro de Transações
+###  Cadastro de Transações
 
 * Criação de transações
 * Listagem de transações
@@ -122,7 +122,7 @@ Campos:
 
 ---
 
-### 📊 Relatórios
+###  Relatórios
 
 * Relatório de totais por pessoa:
 
@@ -139,9 +139,9 @@ GET /api/Relatorios/totais-por-pessoa
 
 ---
 
-## ▶️ Como Executar o Projeto
+##  Como Executar o Projeto
 
-### 🔹 Backend
+###  Backend
 
 1. Acesse a pasta do backend:
 
@@ -209,7 +209,7 @@ http://localhost:5173
 
 ---
 
-## 🧪 Observações Importantes
+##  Observações Importantes
 
 * O projeto **não utiliza CSS ou bibliotecas visuais externas**, mantendo foco total nas regras de negócio e na lógica solicitada.
 * A persistência dos dados é garantida via **SQLite**, mantendo os registros mesmo após reinicialização do sistema.
@@ -218,7 +218,7 @@ http://localhost:5173
 
 ---
 
-## ✅ Conclusão
+## Conclusão
 
 Este projeto atende integralmente aos requisitos propostos, priorizando:
 
@@ -226,7 +226,3 @@ Este projeto atende integralmente aos requisitos propostos, priorizando:
 * Boas práticas em .NET e React
 * Código limpo e organizado
 * Separação adequada entre backend e frontend
-
----
-
-📌 **Desenvolvido para fins de avaliação técnica.**
