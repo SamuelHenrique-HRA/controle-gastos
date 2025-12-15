@@ -5,21 +5,34 @@ using System.Text.Json.Serialization;
 var builder = WebApplication.CreateBuilder(args);
 
 // ==============================
-// CONFIGURAÇÃO DO BANCO (SQLite)
+// BANCO DE DADOS (SQLite)
 // ==============================
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite("Data Source=controle-gastos.db")
 );
 
 // ==============================
-// CONFIGURAÇÃO DOS CONTROLLERS
-// - Ignora ciclos de referência
+// CONTROLLERS + JSON
 // ==============================
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
         options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
     });
+
+// ==============================
+// CORS (FRONTEND VITE)
+// ==============================
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy
+            .WithOrigins("http://localhost:5173")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
 
 // ==============================
 // SWAGGER
@@ -39,8 +52,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("AllowFrontend");
 app.UseHttpsRedirection();
-
+app.UseAuthorization();
 app.MapControllers();
 
 app.Run();

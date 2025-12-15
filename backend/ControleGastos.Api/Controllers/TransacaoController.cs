@@ -26,6 +26,11 @@ public class TransacaoController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> CriarTransacao(Transacao transacao)
     {
+
+        Console.WriteLine("===== DEBUG TRANSACAO =====");
+        Console.WriteLine($"Tipo recebido: {(int)transacao.Tipo} - {transacao.Tipo}");
+        Console.WriteLine($"PessoaId: {transacao.PessoaId}");
+        Console.WriteLine($"CategoriaId: {transacao.CategoriaId}");
         // Verifica se a pessoa existe
         var pessoa = await _context.Pessoas.FindAsync(transacao.PessoaId);
         if (pessoa == null)

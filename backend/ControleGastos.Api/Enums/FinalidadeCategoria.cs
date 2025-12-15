@@ -2,7 +2,7 @@ namespace ControleGastos.Api.Enums;
 
 public enum FinalidadeCategoria
 {
-    Despesa,
-    Receita,
-    Ambas
+    Despesa = 1,
+    Receita = 2,
+    Ambas = 3
 }

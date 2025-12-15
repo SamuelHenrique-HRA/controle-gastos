@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ZProfessores\\Aulas Samuel\\Sites\\git\\backend\\ControleGastos.Api\\ControleGastos.Api.csproj": {}
+    "C:\\Users\\Samuel\\Documents\\Teste\\controle-gastos\\backend\\ControleGastos.Api\\ControleGastos.Api.csproj": {}
   },
   "projects": {
-    "D:\\ZProfessores\\Aulas Samuel\\Sites\\git\\backend\\ControleGastos.Api\\ControleGastos.Api.csproj": {
+    "C:\\Users\\Samuel\\Documents\\Teste\\controle-gastos\\backend\\ControleGastos.Api\\ControleGastos.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ZProfessores\\Aulas Samuel\\Sites\\git\\backend\\ControleGastos.Api\\ControleGastos.Api.csproj",
+        "projectUniqueName": "C:\\Users\\Samuel\\Documents\\Teste\\controle-gastos\\backend\\ControleGastos.Api\\ControleGastos.Api.csproj",
         "projectName": "ControleGastos.Api",
-        "projectPath": "D:\\ZProfessores\\Aulas Samuel\\Sites\\git\\backend\\ControleGastos.Api\\ControleGastos.Api.csproj",
-        "packagesPath": "C:\\Users\\Gigabyte\\.nuget\\packages\\",
-        "outputPath": "D:\\ZProfessores\\Aulas Samuel\\Sites\\git\\backend\\ControleGastos.Api\\obj\\",
+        "projectPath": "C:\\Users\\Samuel\\Documents\\Teste\\controle-gastos\\backend\\ControleGastos.Api\\ControleGastos.Api.csproj",
+        "packagesPath": "C:\\Users\\Samuel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Samuel\\Documents\\Teste\\controle-gastos\\backend\\ControleGastos.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Gigabyte\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Samuel\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"

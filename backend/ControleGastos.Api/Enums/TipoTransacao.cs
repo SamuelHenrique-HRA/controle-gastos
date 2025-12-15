@@ -2,6 +2,6 @@ namespace ControleGastos.Api.Enums;
 
 public enum TipoTransacao
 {
-    Despesa,
-    Receita
+    Despesa = 1,
+    Receita = 2
 }

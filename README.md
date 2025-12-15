@@ -1,140 +1,232 @@
-# Controle de Gastos Residenciais – Backend
+# Sistema de Controle de Gastos Residenciais
 
-Este projeto consiste no **backend de um sistema de controle de gastos residenciais**, desenvolvido como teste técnico, com foco em **boas práticas, regras de negócio claras e organização de código**.
+Este projeto foi desenvolvido como parte de um **teste técnico**, com o objetivo de implementar um sistema simples e funcional para **controle de gastos residenciais**, respeitando regras de negócio específicas e boas práticas de desenvolvimento.
 
-A aplicação foi construída como uma **Web API em .NET**, separada do front-end, utilizando persistência em banco de dados relacional local.
+A aplicação é composta por um **backend em .NET (Web API)** e um **frontend em React com TypeScript**, mantendo clara separação de responsabilidades entre as camadas.
 
+---
 
-## 🛠 Tecnologias Utilizadas
+## 🧠 Objetivo do Sistema
 
-- **.NET 8**
-- **ASP.NET Core Web API**
-- **Entity Framework Core**
-- **SQLite** (persistência local)
-- **Swagger** (documentação da API)
-- **Git / GitHub**
+Permitir o cadastro e gerenciamento de:
 
+* Pessoas
+* Categorias financeiras
+* Transações (receitas e despesas)
 
-## 📁 Estrutura do Projeto
+Além disso, o sistema disponibiliza **relatórios consolidados**, permitindo visualizar:
 
-backend/
-└─ ControleGastos.Api/
-├─ Controllers/ → Endpoints da API
-├─ Data/ → DbContext e configuração do banco
-├─ Models/ → Entidades do domínio
-├─ Enums/ → Enumerações (TipoTransacao, FinalidadeCategoria)
-├─ DTOs/ → Objetos de transferência de dados
-├─ Migrations/ → Migrations do Entity Framework
-├─ Program.cs → Configuração da aplicação
+* Totais de receitas, despesas e saldo por pessoa
+* Totais gerais de todas as pessoas cadastradas
 
+---
 
+## 🛠️ Tecnologias Utilizadas
+
+### Backend
+
+* **C#**
+* **.NET (ASP.NET Web API)**
+* **Entity Framework Core**
+* **SQLite** (persistência local)
+
+### Frontend
+
+* **React**
+* **TypeScript**
+* **Axios** (consumo da API)
+
+---
+
+## 📂 Estrutura do Projeto
+
+```
+controle-gastos/
+├── backend/
+│   └── ControleGastos.Api
+│       ├── Controllers
+│       ├── Models
+│       ├── Enums
+│       ├── Data
+│       └── Program.cs
+│
+├── frontend/
+│   ├── src/
+│   │   ├── api
+│   │   ├── pages
+│   │   ├── types
+│   │   ├── components
+│   │   └── App.tsx
+│
+├── README.md
+└── .gitignore
+```
+
+---
 
 ## 📌 Funcionalidades Implementadas
 
 ### 👤 Cadastro de Pessoas
-- Criar pessoa
-- Listar pessoas
-- Excluir pessoa
-- Ao excluir uma pessoa, **todas as suas transações são removidas**
+
+* Criação de pessoas
+* Listagem de pessoas
+* Exclusão de pessoas
+* **Exclusão em cascata** das transações vinculadas (regra aplicada no backend)
 
 Campos:
-- Id (gerado automaticamente)
-- Nome
-- Idade
 
+* Identificador (gerado automaticamente)
+* Nome
+* Idade (número inteiro positivo)
 
-### 🗂 Cadastro de Categorias
-- Criar categoria
-- Listar categorias
+---
+
+### 🗂️ Cadastro de Categorias
+
+* Criação de categorias
+* Listagem de categorias
 
 Campos:
-- Id (gerado automaticamente)
-- Descrição
-- Finalidade:
-  - Despesa
-  - Receita
-  - Ambas
 
+* Identificador
+* Descrição
+* Finalidade:
+
+  * Despesa
+  * Receita
+
+---
 
 ### 💰 Cadastro de Transações
-- Criar transação
-- Listar transações
 
-Regras de negócio:
-- Pessoas **menores de 18 anos** só podem registrar **despesas**
-- A **categoria deve ser compatível** com o tipo da transação
-- Transação deve estar vinculada a uma pessoa existente
+* Criação de transações
+* Listagem de transações
 
 Campos:
-- Id (gerado automaticamente)
-- Descrição
-- Valor (positivo)
-- Tipo (Despesa / Receita)
-- Categoria
-- Pessoa
 
+* Identificador
+* Descrição
+* Valor (decimal positivo)
+* Tipo (Despesa ou Receita)
+* Categoria
+* Pessoa
+
+#### Regras de Negócio Aplicadas:
+
+* Pessoas **menores de 18 anos não podem cadastrar receitas**
+* Categorias devem ser **compatíveis com o tipo da transação**
+* Todas as validações são aplicadas:
+
+  * No **backend** (garantia de integridade)
+  * No **frontend** (melhor experiência do usuário)
+
+---
 
 ### 📊 Relatórios
 
-#### 🔹 Totais por Pessoa
-- Total de receitas
-- Total de despesas
-- Saldo (receitas - despesas)
-- Total geral consolidado
+* Relatório de totais por pessoa:
 
+  * Total de receitas
+  * Total de despesas
+  * Saldo (receita – despesa)
+* Totais gerais consolidados ao final do relatório
 
+Endpoint:
+
+```
+GET /api/Relatorios/totais-por-pessoa
+```
+
+---
 
 ## ▶️ Como Executar o Projeto
 
-### Pré-requisitos
-- .NET SDK 8 instalado
-- Git
+### 🔹 Backend
 
+1. Acesse a pasta do backend:
 
-### Passo a passo
-
-1️⃣ Clonar o repositório:
-git clone https://github.com/SEU-USUARIO/controle-gastos.git
-
-2️⃣ Acessar o backend:
+```bash
 cd backend/ControleGastos.Api
+```
 
-3️⃣ Restaurar dependências:
+2. Restaure os pacotes:
+
+```bash
 dotnet restore
+```
 
+3. Atualize o banco de dados:
 
-4️⃣ Criar o banco de dados:
+```bash
 dotnet ef database update
+```
 
+4. Execute a aplicação:
 
-5️⃣ Executar a aplicação:
+```bash
 dotnet run
+```
 
+A API ficará disponível em:
 
-6️⃣ Acessar o Swagger:
+```
+http://localhost:5028
+```
+
+Swagger:
+
+```
 http://localhost:5028/swagger
+```
 
-## Testes Manuais via Swagger
+---
 
-A API pode ser testada diretamente pelo Swagger, permitindo:
+### 🔹 Frontend
 
-Criar pessoas (menor e maior de idade)
+1. Acesse a pasta do frontend:
 
-Criar categorias de despesa e receita
+```bash
+cd frontend
+```
 
-Registrar transações respeitando as regras de negócio
+2. Instale as dependências:
 
-Consultar relatórios consolidados
+```bash
+npm install
+```
 
-## Observações Importantes
+3. Execute o projeto:
 
-O banco SQLite é criado automaticamente ao rodar a aplicação
+```bash
+npm run dev
+```
 
-Arquivos de banco (.db) não são versionados (configurados no .gitignore)
+A aplicação estará disponível em:
 
-O projeto segue separação de responsabilidades e padrões comuns em aplicações .NET
+```
+http://localhost:5173
+```
 
-✍️ Autor
+---
 
-Desenvolvido por Samuel Henrique
-Projeto criado para fins de avaliação técnica.
+## 🧪 Observações Importantes
+
+* O projeto **não utiliza CSS ou bibliotecas visuais externas**, mantendo foco total nas regras de negócio e na lógica solicitada.
+* A persistência dos dados é garantida via **SQLite**, mantendo os registros mesmo após reinicialização do sistema.
+* O código contém **comentários explicativos**, facilitando entendimento e manutenção.
+* Todas as decisões técnicas foram tomadas visando **clareza, simplicidade e aderência ao enunciado**.
+
+---
+
+## ✅ Conclusão
+
+Este projeto atende integralmente aos requisitos propostos, priorizando:
+
+* Clareza de regras de negócio
+* Boas práticas em .NET e React
+* Código limpo e organizado
+* Separação adequada entre backend e frontend
+
+---
+
+📌 **Desenvolvido para fins de avaliação técnica.**
